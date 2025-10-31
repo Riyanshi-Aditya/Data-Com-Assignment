@@ -1,11 +1,11 @@
-# ⚡ LINE ENCODING VISUALIZER
+# LINE ENCODING VISUALIZER
 
 A Python-based interactive tool to *visualize line encoding schemes* for both digital and analog signals.  
 This project helps you *understand how binary data is represented and transmitted* through various encoding techniques — from NRZ to scrambling and modulation schemes.
 
 ---
 
-## 🧩 Features
+##  Features
 
 ### Digital-to-Digital Encoding:
 - *NRZ-L (Non-Return-to-Zero Level)*
@@ -29,7 +29,7 @@ This project helps you *understand how binary data is represented and transmitte
 
 ---
 
-## 📦 Installation
+## Installation
 
 Make sure you have *Python 3.x* installed.
 
@@ -43,7 +43,7 @@ Run the visualizer:
 bash
 python project.py
 
-## 🚀 Usage Guide
+##  Usage Guide
 
 After running the program, you’ll be prompted to choose between *Digital* and *Analog* input modes.
 
@@ -79,7 +79,7 @@ To exit, close the plot window or press Ctrl + C in the terminal.
 
 ---
 
-## 🧩 Conclusion
+##  Conclusion
 
 This project serves as a simple yet powerful visualization tool for understanding various *Digital Line Encoding* and *Analog-to-Digital Conversion* techniques. It can be used for educational purposes, lab demonstrations, or as a base for more advanced communication system simulations. Feel free to explore, modify, and enhance it to include more encoding schemes or visualization features!
 
