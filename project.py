@@ -173,13 +173,50 @@ def B8ZS(bits):
     return bits
 
 # Analog to Digital encoding schemes:
+
+def generate_analog_signal():
+    print("\nEnter Analog Signal Parameters:")
+    amplitude = float(input("Enter Amplitude (A): "))
+    frequency = float(input("Enter Frequency (Hz): "))
+    time_period = float(input("Enter Total Time Period (seconds): "))
+    sampling_time = float(input("Enter Sampling Interval (seconds): "))
+
+    # Create time samples
+    t = np.arange(0, time_period, sampling_time)
+    # Generate a sine wave
+    signal = amplitude * np.sin(2 * np.pi * frequency * t)
+
+    print("\nGenerated Analog Signal:")
+    print("Time Samples:", np.round(t, 3))
+    print("Sampled Amplitudes:", np.round(signal, 3))
+
+    # Plot the continuous signal and sampled points
+    # plt.figure(figsize=(10, 4))
+    # plt.plot(t, signal, label="Analog Signal", color="#0077b6")
+    # plt.scatter(t, signal, color="#d62828", label="Sampled Points")
+    # plt.title("Sampled Analog Signal", fontsize=14)
+    # plt.xlabel("Time (s)")
+    # plt.ylabel("Amplitude")
+    # plt.grid(True, linestyle="--", alpha=0.5)
+    # plt.legend()
+    # plt.tight_layout()
+    # plt.show()
+
+    return list(np.round(signal, 3))
+
+
+
 # 1. PCM
-def PCM():
+def PCM(samples=None):
 
     # User will provide sampled amplitudes.
-    samples=list(map(float, input("Enter sampled analog values (comma-separated): ").split(',')))
+    if samples is None:
+        samples = list(map(float, input("Enter sampled analog values (comma-separated): ").split(',')))
 
-    levels=list(range(-3,5))  # For Quantization, 8 levels are created.
+    x_min = np.floor(min(samples))
+    x_max = np.ceil(max(samples))
+    levels = np.linspace(x_min, x_max, 8)  # 8 quantization levels
+
 
     if any(x<-3 or x>4 for x in samples):
         print("\n Error: Range not defined! Please enter values between -3 and +4 only.")
@@ -247,10 +284,11 @@ def PCM():
             print("Invalid choice.")
 
 # 2. DM
-def Delta_Modulation():
+def Delta_Modulation(samples=None):
     
     # User will provide sampled amplitudes.
-    samples =list(map(float,input("Enter sampled (quantized) values (comma-separated): ").split(',')))
+    if samples is None:
+        samples = list(map(float, input("Enter sampled (quantized) values (comma-separated): ").split(',')))
 
     if len(samples)<2:
         print(" ERROR! At least two samples required for Delta Modulation")
@@ -375,10 +413,14 @@ def main():
         print("2. Delta Modulation")
         choice = input("Enter choice (1 or 2): ").strip()
 
+        # Generate the sampled analog signal first
+        samples = generate_analog_signal()
+
         if choice == "1":
-            PCM() 
+            PCM(samples)
+
         elif choice == "2":
-            Delta_Modulation()
+            Delta_Modulation(samples)
         else:
             print("Invalid choice.")
 
