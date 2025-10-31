@@ -1,6 +1,6 @@
 # LINE ENCODING VISUALIZER
 
-A Python-based interactive tool to *visualize line encoding schemes* for both digital and analog signals.  
+It is a Python-based interactive tool to *visualize line encoding schemes* for both digital and analog signals.  
 This project helps you *understand how binary data is represented and transmitted* through various encoding techniques — from NRZ to scrambling and modulation schemes.
 
 ---
@@ -47,7 +47,7 @@ python project.py
 
 After running the program, you’ll be prompted to choose between *Digital* and *Analog* input modes.
 
-For the digital mode, enter digital when asked, followed by a binary sequence such as 1011001, and then select one of the available line encoding schemes — 
+For the digital mode, enter digital, followed by a binary sequence such as 1011001, and then select one of the available line encoding schemes — 
 1. *NRZ-L*
 2. *NRZ-I*
 3. *Manchester*
